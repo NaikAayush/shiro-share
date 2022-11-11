@@ -9,6 +9,8 @@ import { FeaturesComponent } from './components/features/features.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { PricingItemComponent } from './components/pricing/pricing-item/pricing-item.component';
 import { PricingItemFeatureComponent } from './components/pricing/pricing-item/pricing-item-feature/pricing-item-feature.component';
+import { FileDropzoneComponent } from './components/file-dropzone/file-dropzone.component';
+import { FileDropzoneDirective } from './components/file-dropzone/directive/file-dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,12 @@ import { PricingItemFeatureComponent } from './components/pricing/pricing-item/p
     FeaturesComponent,
     PricingComponent,
     PricingItemComponent,
-    PricingItemFeatureComponent
+    PricingItemFeatureComponent,
+    FileDropzoneComponent,
+    FileDropzoneDirective,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

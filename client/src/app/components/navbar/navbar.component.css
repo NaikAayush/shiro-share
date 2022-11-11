@@ -5,3 +5,7 @@
 .active-mobile {
   @apply border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4  font-medium text-indigo-700;
 }
+
+:host {
+  @apply grow-0 relative;
+}
