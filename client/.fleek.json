@@ -1,0 +1,15 @@
+{
+  "site": {
+    "id": "2ad4c1ab-1ec3-485d-be25-0c518c53141c",
+    "team": "771cc1da-375c-421e-865e-a42b54b6cdb0",
+    "platform": "ipfs",
+    "source": "github",
+    "name": "lucky-star-6843"
+  },
+  "build": {
+    "baseDir": "client",
+    "publicDir": "dist/client",
+    "command": "yarn install && yarn build",
+    "rootDir": ""
+  }
+}
