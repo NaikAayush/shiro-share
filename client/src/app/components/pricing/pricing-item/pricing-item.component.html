@@ -1,0 +1,40 @@
+<div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+  <div class="bg-white px-6 py-8 sm:p-10 sm:pb-6">
+    <div>
+      <h3
+        class="inline-flex rounded-full bg-indigo-100 px-4 py-1 text-base font-semibold text-indigo-600"
+        id="tier-standard"
+      >
+        {{ pricingData?.name }}
+      </h3>
+    </div>
+    <div class="mt-4 flex items-baseline text-6xl font-bold tracking-tight">
+      $ {{ pricingData?.pricePerMonth }}
+      <span class="ml-1 text-2xl font-medium tracking-normal text-gray-500"
+        >/mo</span
+      >
+    </div>
+    <p class="mt-5 text-lg text-gray-500">
+      {{ pricingData?.description }}
+    </p>
+  </div>
+  <div
+    class="flex flex-1 flex-col justify-between space-y-6 bg-gray-50 px-6 pt-6 pb-8 sm:p-10 sm:pt-6"
+  >
+    <ul
+      *ngFor="let feature of pricingData?.features"
+      role="list"
+      class="space-y-4"
+    >
+      <app-pricing-item-feature [feature]="feature"></app-pricing-item-feature>
+    </ul>
+    <div class="rounded-md shadow">
+      <a
+        href="#"
+        class="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900"
+        aria-describedby="tier-standard"
+        >Get started</a
+      >
+    </div>
+  </div>
+</div>

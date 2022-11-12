@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  PROVIDER_URL:
+    'https://compatible-bitter-thunder.matic-testnet.quiknode.pro/55aaf4df295c255581bea7723fe96dc70dc81ab9/',
+  MAGIC_API_KEY: 'pk_live_F961216011ACF2B8',
 };
 
 /*
