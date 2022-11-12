@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MagicService } from 'src/app/services/magic.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   menuOpen = false;
 
-  constructor() {}
+  constructor(public magic: MagicService) {}
 
   ngOnInit(): void {}
 

@@ -11,6 +11,7 @@ import { PricingItemComponent } from './components/pricing/pricing-item/pricing-
 import { PricingItemFeatureComponent } from './components/pricing/pricing-item/pricing-item-feature/pricing-item-feature.component';
 import { FileDropzoneComponent } from './components/file-dropzone/file-dropzone.component';
 import { FileDropzoneDirective } from './components/file-dropzone/directive/file-dropzone.directive';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FileDropzoneDirective } from './components/file-dropzone/directive/file
     PricingItemFeatureComponent,
     FileDropzoneComponent,
     FileDropzoneDirective,
+    AuthComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
