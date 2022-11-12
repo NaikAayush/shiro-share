@@ -3,9 +3,20 @@ on: [push]
 jobs:
   test-deploy:
     runs-on: ubuntu-latest
-    name: Deploy to fleek
+    defaults:
+      run:
+        working-directory: ./client
+    name: Build and Deploy to fleek
     steps:
       - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install
+      - name: Build app
+        run: yarn build
       - name: Deploy test site
         id: deploy
         uses: fleekhq/action-deploy@v1
