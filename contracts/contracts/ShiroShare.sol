@@ -3,7 +3,9 @@ pragma solidity ^0.8.9;
 
 import "shiro-store/contracts/ShiroStore.sol";
 
-contract ShiroShare {
+import "@chainlink/contracts/src/v0.8/AutomationCompatible.sol";
+
+contract ShiroShare is AutomationCompatibleInterface {
     IShiroStore private shiroStore;
 
     constructor(address shiroStoreAddr) {
@@ -139,4 +141,42 @@ contract ShiroShare {
             }
         }
     }
+
+    // === Chainlink automation ===
+    function checkUpkeep(
+        bytes calldata /* checkData */
+    )
+        external
+        view
+        override
+        returns (bool upkeepNeeded, bytes memory performData)
+    {
+        upkeepNeeded = false;
+        performData = new bytes(0);
+
+        for (uint256 ownerIdx = 0; ownerIdx < owners.length; ++ownerIdx) {
+            address owner = owners[ownerIdx];
+            for (
+                uint256 fileIdx = 0;
+                fileIdx < store[owner].length;
+                ++fileIdx
+            ) {
+                File storage file = store[owner][fileIdx];
+                if (
+                    file.valid &&
+                    !file.deleted &&
+                    file.timestamp + file.validity <= block.timestamp
+                ) {
+                    upkeepNeeded = true;
+                }
+            }
+        }
+    }
+
+    function performUpkeep(
+        bytes calldata /* performData */
+    ) external override {
+        this.garbageCollect();
+    }
+    // === -------------------- ===
 }
