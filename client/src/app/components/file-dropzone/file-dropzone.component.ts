@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IpfsService } from 'src/app/services/ipfs.service';
 
 @Component({
   selector: 'app-file-dropzone',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileDropzoneComponent implements OnInit {
   files: any[] = [];
+
+  constructor(private ipfs: IpfsService) {}
 
   ngOnInit(): void {}
 
@@ -57,12 +60,13 @@ export class FileDropzoneComponent implements OnInit {
    * Convert Files list to normal array list
    * @param files (Files List)
    */
-  prepareFilesList(files: Array<any>) {
+  async prepareFilesList(files: Array<any>) {
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
     }
-    console.log(this.files);
+    console.log(this.files[0]);
+    await this.ipfs.upload(this.files[0]);
     // this.uploadFilesSimulator(0);
   }
 
