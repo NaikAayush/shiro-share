@@ -62,10 +62,6 @@ contract ShiroShare is AutomationCompatibleInterface {
         uint256 validity,
         string memory provider
     ) external payable {
-        require(bytes(cid).length == 46, "Invalid IPFS CID length.");
-
-        require(validity >= 3600, "Validity must be at least an hour.");
-
         address owner = msg.sender;
 
         File storage file = findOrCreateFile(owner, cid);
