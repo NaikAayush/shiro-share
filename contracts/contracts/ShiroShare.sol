@@ -60,7 +60,8 @@ contract ShiroShare is AutomationCompatibleInterface {
     function putFile(
         string memory cid,
         uint256 validity,
-        string memory provider
+        string memory provider,
+        uint256 sizeInBytes
     ) external payable {
         address owner = msg.sender;
 
@@ -82,7 +83,7 @@ contract ShiroShare is AutomationCompatibleInterface {
         file.timestamp = block.timestamp;
         file.validity = validity;
 
-        shiroStore.putFile(cid, validity, provider);
+        shiroStore.putFile(cid, validity, provider, sizeInBytes);
     }
 
     function getFiles() external view returns (File[] memory) {

@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "@chainlink/contracts": "^0.5.1",
-    "shiro-store": "0.0.4"
+    "shiro-store": "0.1.0"
   }
 }
