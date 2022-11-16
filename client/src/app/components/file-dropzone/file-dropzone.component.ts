@@ -7,9 +7,16 @@ import { IpfsService } from 'src/app/services/ipfs.service';
   styleUrls: ['./file-dropzone.component.css'],
 })
 export class FileDropzoneComponent implements OnInit {
+  isUploading: boolean = false;
   files: any[] = [];
+  bytes: number = 0;
+  size: string = '';
+  file!: File;
+  fileName: string = '';
+  fileExtension: string = '';
+  fileIconPath: string = '';
 
-  constructor(private ipfs: IpfsService) {}
+  constructor(public ipfs: IpfsService) {}
 
   ngOnInit(): void {}
 
@@ -36,27 +43,6 @@ export class FileDropzoneComponent implements OnInit {
   }
 
   /**
-   * Simulate the upload process
-   */
-  uploadFilesSimulator(index: number) {
-    console.log('im uploading');
-    setTimeout(() => {
-      if (index === this.files.length) {
-        return;
-      } else {
-        const progressInterval = setInterval(() => {
-          if (this.files[index].progress === 100) {
-            clearInterval(progressInterval);
-            this.uploadFilesSimulator(index + 1);
-          } else {
-            this.files[index].progress += 5;
-          }
-        }, 200);
-      }
-    }, 1000);
-  }
-
-  /**
    * Convert Files list to normal array list
    * @param files (Files List)
    */
@@ -66,8 +52,14 @@ export class FileDropzoneComponent implements OnInit {
       this.files.push(item);
     }
     console.log(this.files[0]);
-    await this.ipfs.upload(this.files[0]);
-    // this.uploadFilesSimulator(0);
+    this.file = this.files[0];
+    this.bytes = this.file.size;
+    this.fileName = this.file.name;
+    this.size = this.formatBytes(this.file.size, 0);
+    this.isUploading = true;
+    this.setFileExtension(this.file);
+    console.log(this.fileExtension);
+    await this.ipfs.upload(this.file);
   }
 
   /**
@@ -84,5 +76,10 @@ export class FileDropzoneComponent implements OnInit {
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
+
+  setFileExtension(file: File) {
+    this.fileExtension = file.name.split('.').pop()?.toUpperCase() as string;
+    this.fileIconPath = `assets/file-icons/${this.fileExtension}.svg`;
   }
 }

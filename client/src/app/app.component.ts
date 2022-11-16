@@ -7,9 +7,11 @@ import { MagicService } from './services/magic.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'client';
+  title = 'Shiro Share';
 
   constructor(private magic: MagicService) {}
 
-  ngOnInit(): void {}
+  async ngOnInit() {
+    await this.magic.getFiles();
+  }
 }
