@@ -86,7 +86,7 @@ contract ShiroShare is AutomationCompatibleInterface, ERC2771Context {
         file.timestamp = block.timestamp;
         file.validity = validity;
 
-        shiroStore.putFile(cid, validity, provider, sizeInBytes);
+        shiroStore.putFile{value: msg.value}(cid, validity, provider, sizeInBytes);
     }
 
     function getFiles() external view returns (File[] memory) {
