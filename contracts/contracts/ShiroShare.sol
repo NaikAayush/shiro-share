@@ -4,11 +4,14 @@ pragma solidity ^0.8.9;
 import "shiro-store/contracts/ShiroStore.sol";
 
 import "@chainlink/contracts/src/v0.8/AutomationCompatible.sol";
+import "@openzeppelin/contracts/metatx/ERC2771Context.sol";
+import "@openzeppelin/contracts/metatx/MinimalForwarder.sol";
 
-contract ShiroShare is AutomationCompatibleInterface {
+contract ShiroShare is AutomationCompatibleInterface, ERC2771Context {
     IShiroStore private shiroStore;
 
-    constructor(address shiroStoreAddr) {
+    constructor(address shiroStoreAddr, MinimalForwarder forwarder) // Initialize trusted forwarder
+    ERC2771Context(address(forwarder)) {
         shiroStore = IShiroStore(shiroStoreAddr);
     }
 
@@ -60,9 +63,10 @@ contract ShiroShare is AutomationCompatibleInterface {
     function putFile(
         string memory cid,
         uint256 validity,
-        string memory provider
+        string memory provider,
+        uint256 sizeInBytes
     ) external payable {
-        address owner = msg.sender;
+        address owner = _msgSender();
 
         File storage file = findOrCreateFile(owner, cid);
 
@@ -82,11 +86,11 @@ contract ShiroShare is AutomationCompatibleInterface {
         file.timestamp = block.timestamp;
         file.validity = validity;
 
-        shiroStore.putFile(cid, validity, provider);
+        shiroStore.putFile(cid, validity, provider, sizeInBytes);
     }
 
     function getFiles() external view returns (File[] memory) {
-        address owner = msg.sender;
+        address owner = _msgSender();
 
         uint256 resultCount = 0;
         for (uint256 idx = 0; idx < store[owner].length; ++idx) {
@@ -111,7 +115,7 @@ contract ShiroShare is AutomationCompatibleInterface {
     }
 
     function deleteFile(string memory cid) external {
-        address owner = msg.sender;
+        address owner = _msgSender();
 
         File storage file = findFile(owner, cid);
 

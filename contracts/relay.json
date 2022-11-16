@@ -1,0 +1,13 @@
+{
+  "relayer": {
+    "relayerId": "390a11b2-691e-4577-92b4-8012c3f5b6a9",
+    "name": "ShiroMumbai",
+    "address": "0xbf2350f1ef58adb91fa1ec4541812874fc7bf485",
+    "network": "mumbai",
+    "createdAt": "2022-11-16T17:07:37.914Z",
+    "paused": false,
+    "policies": {},
+    "minBalance": "100000000000000000",
+    "pendingTxCost": "0"
+  }
+}

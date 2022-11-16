@@ -2,8 +2,11 @@ import { ethers } from "hardhat";
 
 async function main() {
   const ShiroShare = await ethers.getContractFactory("ShiroShare");
+  const MinimalForwarder = await ethers.getContractFactory("MinimalForwarder");
+  const minimalForwarder = await MinimalForwarder.deploy();
   const shiroShare = await ShiroShare.deploy(
-    process.env.SHIRO_SHARE_ADDRESS || ""
+    process.env.SHIRO_STORE_ADDRESS || "",
+    minimalForwarder.address
   );
   await shiroShare.deployed();
 

@@ -31,7 +31,9 @@ describe("ShiroShare", function () {
 
   describe("Deployment", function () {
     it("Should show a newly uploaded file", async function () {
-      const { shiroShare, cid, validity, provider } = await loadFixture(uploadNewFile);
+      const { shiroShare, cid, validity, provider } = await loadFixture(
+        uploadNewFile
+      );
 
       const files = await shiroShare.getFiles();
 

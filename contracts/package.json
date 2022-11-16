@@ -1,12 +1,22 @@
 {
   "name": "hardhat-project",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
-    "dotenv": "^16.0.3",
-    "hardhat": "^2.12.1"
+  "scripts": {
+    "create-relay": "hardhat run scripts/relay/createRelay.ts",
+    "deploy-using-relay": "hardhat run scripts/relay/deployUsingRelay.ts",
+    "create-autotask": "npm run build && hardhat run scripts/relay/createAutotask.ts",
+    "build": "rollup -c --bundleConfigAsCjs"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "defender-autotask-client": "^1.37.0",
+    "hardhat": "^2.12.1",
+    "rollup": "^3.3.0",
     "@chainlink/contracts": "^0.5.1",
-    "shiro-store": "0.0.4"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "defender-relay-client": "^1.37.0",
+    "dotenv": "^16.0.3",
+    "shiro-store": "0.1.0"
   }
 }
