@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/shiro-small.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -54,7 +54,7 @@ const config = {
       navbar: {
         title: 'Shiro Share',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Shiro logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -84,7 +84,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Shiro. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Shiro. Built with Docusaurus. Deployed with <a href="https://github.com/NaikAayush/shiro-share/tree/main/docs#deployment">Fleek</a>.`,
       },
       prism: {
         theme: lightCodeTheme,
