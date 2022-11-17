@@ -78,4 +78,16 @@ export class IpfsService {
       return `https://share.shiro.network/#/files/${cid}`;
     }
   }
+
+  async fetchFilename(cid: string) {
+    const fileNameResponse: any = await lastValueFrom(
+      this.http.get(`${environment.SHIRO_STORE_API}/filename`, {
+        params: {
+          cid: cid,
+        },
+        observe: 'response',
+      })
+    );
+    return fileNameResponse.body.status;
+  }
 }

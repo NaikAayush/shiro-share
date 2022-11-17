@@ -108,7 +108,7 @@ export class MagicService {
 
   async getFiles() {
     const tx = await this.shiroShareContractSigned.getFiles();
-    console.log(tx);
+    return tx;
   }
 
   async sendTx(registry: any, name: any) {

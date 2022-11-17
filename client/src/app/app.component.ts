@@ -12,9 +12,7 @@ import { StoreService } from './services/store.service';
 export class AppComponent implements OnInit {
   title = 'Shiro Share';
 
-  constructor(private magic: MagicService, public store: StoreService) {}
+  constructor(public store: StoreService) {}
 
-  async ngOnInit() {
-    await this.magic.getFiles();
-  }
+  async ngOnInit() {}
 }

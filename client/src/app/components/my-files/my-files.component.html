@@ -1,0 +1,33 @@
+<div
+  class="flex flex-col absolute h-full w-full items-center p-20 space-y-20 justify-center"
+>
+  <div class="max-w-md lg:max-w-5xl w-[64rem]">
+    <div class="text-center">
+      <div
+        class="bg-white rounded-lg shadow-lg mx-auto max-w-3xl space-y-4 lg:max-w-none p-8"
+      >
+        <p class="text-4xl font-bold">My Files</p>
+        <p class="text-2xl font-medium">
+          All your active Shiro Share files are listed here
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row grow max-w-md lg:max-w-5xl w-[64rem]">
+    <div class="bg-white rounded-lg shadow-lg w-full h-min flex justify-center">
+      <div class="overflow-hidden bg-white shadow sm:rounded-md w-full">
+        <ul
+          *ngFor="let item of data"
+          role="list"
+          class="divide-y divide-gray-200"
+        >
+          <app-my-files-item
+            [cid]="item.cid"
+            [validity]="item.validity"
+            [timestamp]="item.timestamp"
+          ></app-my-files-item>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

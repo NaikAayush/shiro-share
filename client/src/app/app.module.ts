@@ -22,6 +22,8 @@ import { LinkComponent } from './components/share-files/link/link.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './components/toast/toast.component';
 import { FilesComponent } from './components/files/files.component';
+import { MyFilesComponent } from './components/my-files/my-files.component';
+import { MyFilesItemComponent } from './components/my-files/my-files-item/my-files-item.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { FilesComponent } from './components/files/files.component';
     LinkComponent,
     ToastComponent,
     FilesComponent,
+    MyFilesComponent,
+    MyFilesItemComponent,
   ],
   imports: [
     BrowserModule,
