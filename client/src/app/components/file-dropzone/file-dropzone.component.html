@@ -136,11 +136,3 @@
     </div>
   </div>
 </div>
-
-<app-toast
-  @openCloseAnimation
-  *ngIf="storeService.isToastVisible"
-  [success]="success"
-  [title]="toastTitle"
-  [body]="toastBody"
-></app-toast>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { EmailComponent } from './components/share-files/email/email.component';
 import { LinkComponent } from './components/share-files/link/link.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './components/toast/toast.component';
+import { FilesComponent } from './components/files/files.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { ToastComponent } from './components/toast/toast.component';
     EmailComponent,
     LinkComponent,
     ToastComponent,
+    FilesComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { ToastComponent } from './components/toast/toast.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    ClipboardModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],

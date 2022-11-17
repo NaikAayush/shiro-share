@@ -1,0 +1,42 @@
+<div
+  class="flex flex-col absolute h-full w-full items-center p-20 space-y-20 justify-center"
+>
+  <div class="max-w-md lg:max-w-5xl w-[64rem]">
+    <div class="text-center">
+      <div
+        class="bg-white rounded-lg shadow-lg mx-auto max-w-3xl space-y-4 lg:max-w-none p-8"
+      >
+        <p class="text-4xl font-bold">File Name: {{ fileName }}</p>
+        <p class="text-2xl font-medium">CID: {{ cid }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row grow max-w-md lg:max-w-5xl w-[64rem]">
+    <div
+      class="bg-white rounded-lg shadow-lg w-full h-min p-10 flex justify-center"
+    >
+      <a
+        [href]="fileURL"
+        [attr.download]="fileName"
+        class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Download file
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="ml-3 -mr-1 h-5 w-5"
+        >
+          <path
+            d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zM12 10.5a.75.75 0 01.75.75v4.94l1.72-1.72a.75.75 0 111.06 1.06l-3 3a.75.75 0 01-1.06 0l-3-3a.75.75 0 111.06-1.06l1.72 1.72v-4.94a.75.75 0 01.75-.75z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>

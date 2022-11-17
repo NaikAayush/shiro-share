@@ -22,8 +22,6 @@ export class FileDropzoneComponent implements OnInit {
   success: boolean = true;
   loadingMessage: string = '';
   loading: boolean = false;
-  toastTitle: string = '';
-  toastBody: string = '';
 
   constructor(public ipfs: IpfsService, public storeService: StoreService) {}
 
@@ -68,18 +66,24 @@ export class FileDropzoneComponent implements OnInit {
     this.size = this.formatBytes(this.file.size, 0);
     this.setFileExtension(this.file);
     this.isUploading = true;
-    this.loadingMessage = 'Processing Transaction';
+    this.loadingMessage =
+      'Processing Transaction. Sign the Transaction with your wallet.';
     const { success, fileURL } = await this.ipfs.upload(this.file);
     if (success) {
-      this.toastTitle = 'Success';
-      this.toastBody = 'File upload and transation successful';
+      if (fileURL) {
+        this.storeService.fileURL = fileURL;
+      }
+      this.storeService.toastTitle = 'Success';
+      this.storeService.toastBody = 'File upload and transation successful';
     } else {
       this.isUploading = false;
       this.files = [];
-      this.toastTitle = 'Error';
-      this.toastBody = 'File upload or transation failed. Please try again';
+      this.storeService.toastTitle = 'Error';
+      this.storeService.toastBody =
+        'File upload or transation failed. Please try again';
     }
     this.storeService.isToastVisible = true;
+    this.storeService.success = success;
     this.success = success;
     this.loading = false;
   }

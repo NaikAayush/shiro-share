@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FeaturesComponent } from './components/features/features.component';
+import { FilesComponent } from './components/files/files.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { EmailComponent } from './components/share-files/email/email.component';
 import { LinkComponent } from './components/share-files/link/link.component';
@@ -13,12 +14,14 @@ const routes: Routes = [
     component: DashboardComponent,
     // pathMatch: 'full',
     children: [
+      { path: '', redirectTo: 'link', pathMatch: 'full' },
       { path: 'email', component: EmailComponent },
       { path: 'link', component: LinkComponent },
     ],
   },
   { path: 'features', component: FeaturesComponent, pathMatch: 'full' },
   { path: 'pricing', component: PricingComponent, pathMatch: 'full' },
+  { path: 'files/:cid', component: FilesComponent, pathMatch: 'full' },
 ];
 
 @NgModule({

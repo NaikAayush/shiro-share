@@ -4,3 +4,10 @@
   <app-navbar></app-navbar>
   <router-outlet></router-outlet>
 </div>
+<app-toast
+  @openCloseAnimation
+  *ngIf="store.isToastVisible"
+  [success]="store.success"
+  [title]="store.toastTitle"
+  [body]="store.toastBody"
+></app-toast>
