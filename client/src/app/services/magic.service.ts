@@ -11,6 +11,7 @@ import { lastValueFrom } from 'rxjs';
 import { EstimatePrice } from '../models/estimatePrice';
 import { GetSize } from '../models/getSize';
 import { PutFile } from '../models/putFile';
+import { AutotaskResponse } from '../models/autotaskResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -140,7 +141,7 @@ export class MagicService {
     );
     console.log({ request });
     return await lastValueFrom(
-      this.http.post(defenderURL, JSON.stringify(request), {
+      this.http.post<AutotaskResponse>(defenderURL, JSON.stringify(request), {
         headers: { 'Content-Type': 'application/json' },
       })
     );

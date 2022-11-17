@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { openCloseAnimation } from 'src/app/services/animation.service';
 import { IpfsService } from 'src/app/services/ipfs.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-file-dropzone',
   templateUrl: './file-dropzone.component.html',
   styleUrls: ['./file-dropzone.component.css'],
+  animations: [openCloseAnimation],
 })
 export class FileDropzoneComponent implements OnInit {
   isUploading: boolean = false;
@@ -15,8 +18,14 @@ export class FileDropzoneComponent implements OnInit {
   fileName: string = '';
   fileExtension: string = '';
   fileIconPath: string = '';
+  ipfsUrl: string = '';
+  success: boolean = true;
+  loadingMessage: string = '';
+  loading: boolean = false;
+  toastTitle: string = '';
+  toastBody: string = '';
 
-  constructor(public ipfs: IpfsService) {}
+  constructor(public ipfs: IpfsService, public storeService: StoreService) {}
 
   ngOnInit(): void {}
 
@@ -47,19 +56,32 @@ export class FileDropzoneComponent implements OnInit {
    * @param files (Files List)
    */
   async prepareFilesList(files: Array<any>) {
+    this.loading = true;
+    this.loadingMessage = 'Processing File';
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
     }
-    console.log(this.files[0]);
     this.file = this.files[0];
     this.bytes = this.file.size;
     this.fileName = this.file.name;
     this.size = this.formatBytes(this.file.size, 0);
-    this.isUploading = true;
     this.setFileExtension(this.file);
-    console.log(this.fileExtension);
-    await this.ipfs.upload(this.file);
+    this.isUploading = true;
+    this.loadingMessage = 'Processing Transaction';
+    const { success, fileURL } = await this.ipfs.upload(this.file);
+    if (success) {
+      this.toastTitle = 'Success';
+      this.toastBody = 'File upload and transation successful';
+    } else {
+      this.isUploading = false;
+      this.files = [];
+      this.toastTitle = 'Error';
+      this.toastBody = 'File upload or transation failed. Please try again';
+    }
+    this.storeService.isToastVisible = true;
+    this.success = success;
+    this.loading = false;
   }
 
   /**

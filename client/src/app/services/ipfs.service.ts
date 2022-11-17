@@ -19,26 +19,39 @@ export class IpfsService {
   }
 
   public async upload(file: File) {
-    this.size = file.size;
-    const ipfsResponse = await this.ipfs.add(file, {
-      progress: (prog) => {
-        this.progress = prog;
-      },
-    });
-    const cid = ipfsResponse.cid.toString();
-    const estimatePrice = await this.magic.estimatePrice(
-      cid,
-      environment.DEFAULT_VALIDITY
-    );
-    console.log(estimatePrice.price);
-    const getSize = await this.magic.getSize(cid);
-    const tx = await this.magic.putFile({
-      cid: cid,
-      validity: environment.DEFAULT_VALIDITY,
-      provider: environment.DEFAULT_PROVIDER,
-      size: getSize.size,
-      price: estimatePrice.price,
-    });
-    console.log(tx);
+    try {
+      this.size = file.size;
+      const ipfsResponse = await this.ipfs.add(file, {
+        progress: (prog) => {
+          this.progress = prog;
+        },
+      });
+      const cid = ipfsResponse.cid.toString();
+      const estimatePrice = await this.magic.estimatePrice(
+        cid,
+        environment.DEFAULT_VALIDITY
+      );
+
+      console.log(estimatePrice.price);
+      const getSize = await this.magic.getSize(cid);
+      const tx = await this.magic.putFile({
+        cid: cid,
+        validity: environment.DEFAULT_VALIDITY,
+        provider: environment.DEFAULT_PROVIDER,
+        size: getSize.size,
+        price: estimatePrice.price,
+      });
+      console.log(tx);
+      const success = true ? tx.status == 'success' : false;
+      const fileURL = this.generateFileUrl(cid);
+      return { success, fileURL };
+    } catch (error) {
+      const success = false;
+      return { success };
+    }
+  }
+
+  generateFileUrl(cid: string) {
+    return `${environment.IPFS_URL}/ipfs/${cid}`;
   }
 }

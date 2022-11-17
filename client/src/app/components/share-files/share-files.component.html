@@ -1,0 +1,23 @@
+<div class="flex flex-row justify-center p-4 shadow">
+  <div>
+    <div class="hidden sm:block">
+      <nav class="flex space-x-4" aria-label="Tabs">
+        <a
+          routerLink="email"
+          routerLinkActive="active"
+          class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-lg rounded-md"
+          aria-current="page"
+          >Email</a
+        >
+
+        <a
+          routerLink="link"
+          routerLinkActive="active"
+          class="text-gray-500 hover:text-gray-700 px-3 py-2 font-medium text-lg rounded-md"
+          >Link</a
+        >
+      </nav>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

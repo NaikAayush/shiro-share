@@ -3,10 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { EmailComponent } from './components/share-files/email/email.component';
+import { LinkComponent } from './components/share-files/link/link.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    // pathMatch: 'full',
+    children: [
+      { path: 'email', component: EmailComponent },
+      { path: 'link', component: LinkComponent },
+    ],
+  },
   { path: 'features', component: FeaturesComponent, pathMatch: 'full' },
   { path: 'pricing', component: PricingComponent, pathMatch: 'full' },
 ];
