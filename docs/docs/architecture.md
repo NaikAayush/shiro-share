@@ -15,6 +15,10 @@ Shiro Share has the following components:
     - [Relayer](https://docs.openzeppelin.com/defender/relay): relays and pays for the file upload transaction. The transaction is forwarded to the forwarder.
     - Forwarder: calls the Shiro Share contract.
 
+## Architecture Diagram
+
+![Architecture Diagram of Shiro Share](/img/Shiro-Share-Architecture.png)
+
 ## Working
 
 - The user signs up using Magic.
