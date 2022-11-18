@@ -11,31 +11,31 @@ export class PricingComponent implements OnInit {
     {
       name: 'Free',
       pricePerMonth: 0,
-      description: 'For small files',
+      description: 'Instant file sharing for personal use',
       features: [
-        'Pariatur quod similique',
-        'Sapiente libero doloribus modi nostrum',
-        'Pariatur quod similique',
+        'Unlimited number of files',
+        'Max. 100MB per file',
+        'Files are only stored for 24 hours',
       ],
     },
     {
       name: 'Standard',
       pricePerMonth: 19,
-      description: 'For larger files and longer time',
+      description: 'Larger files and longer term storage.',
       features: [
-        'Pariatur quod similique',
-        'Sapiente libero doloribus modi nostrum',
-        'Pariatur quod similique',
+        'Everything from Free',
+        'Max. 1GB per file',
+        'Files are kept for 7 days (1 week)',
       ],
     },
     {
       name: 'Professional',
       pricePerMonth: 49,
-      description: 'For professionals and teams',
+      description: 'For power users and professionals.',
       features: [
-        'Pariatur quod similique',
-        'Sapiente libero doloribus modi nostrum',
-        'Pariatur quod similique',
+        'Everything from Standard',
+        'Unlimited file size',
+        'Files kept for as long as subscription exists',
       ],
     },
   ];
