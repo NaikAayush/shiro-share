@@ -18,6 +18,7 @@
               <a
                 class="btn-sm text-white bg-gradient-to-t from-blue-600 to-blue-400 hover:to-blue-500 w-full shadow-lg group"
                 href="https://share.shiro.network"
+                target="_blank"
               >
                 Get Started
                 <span

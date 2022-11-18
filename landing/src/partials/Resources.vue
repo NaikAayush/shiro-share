@@ -96,6 +96,7 @@
               class="block relative before:content-[''] before:bg-gray-800 before:absolute before:-z-10 before:inset-0 p-6 group ml-36 flex flex-col items-center"
               href="https://github.com/NaikAayush/shiro-storage/"
               v-show="['1'].includes(category)"
+              target="_blank"
             >
               <div
                 class="relative h-12 w-12 rounded-full bg-gradient-to-t from-gray-800 to-gray-700 flex items-center justify-center shadow-lg mb-3 before:content-[''] before:absolute before:-z-10 before:inset-0 before:-m-0.5 before:bg-gradient-to-t before:from-gray-800 before:to-gray-800 before:via-gray-600 before:rounded-full"
@@ -121,6 +122,7 @@
               class="block relative before:content-[''] before:bg-gray-800 before:absolute before:-z-10 before:inset-0 p-6 group ml-36 flex flex-col items-center"
               href="https://github.com/NaikAayush/shiro-share"
               v-show="['4'].includes(category)"
+              target="_blank"
             >
               <div
                 class="relative h-12 w-12 rounded-full bg-gradient-to-t from-gray-800 to-gray-700 flex items-center justify-center shadow-lg mb-3 before:content-[''] before:absolute before:-z-10 before:inset-0 before:-m-0.5 before:bg-gradient-to-t before:from-gray-800 before:to-gray-800 before:via-gray-600 before:rounded-full"
@@ -147,6 +149,7 @@
               class="block relative before:content-[''] before:bg-gray-800 before:absolute before:-z-10 before:inset-0 p-6 group mr-36 flex flex-col items-center"
               href="https://docs.storage.shiro.network/"
               v-show="['1'].includes(category)"
+              target="_blank"
             >
               <div
                 class="relative h-12 w-12 rounded-full bg-gradient-to-t from-gray-800 to-gray-700 flex items-center justify-center shadow-lg mb-3 before:content-[''] before:absolute before:-z-10 before:inset-0 before:-m-0.5 before:bg-gradient-to-t before:from-gray-800 before:to-gray-800 before:via-gray-600 before:rounded-full"
@@ -175,6 +178,7 @@
               class="block relative before:content-[''] before:bg-gray-800 before:absolute before:-z-10 before:inset-0 p-6 group mr-36 flex flex-col items-center"
               href="https://docs.share.shiro.network/"
               v-show="['4'].includes(category)"
+              target="_blank"
             >
               <div
                 class="relative h-12 w-12 rounded-full bg-gradient-to-t from-gray-800 to-gray-700 flex items-center justify-center shadow-lg mb-3 before:content-[''] before:absolute before:-z-10 before:inset-0 before:-m-0.5 before:bg-gradient-to-t before:from-gray-800 before:to-gray-800 before:via-gray-600 before:rounded-full"

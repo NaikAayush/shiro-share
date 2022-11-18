@@ -30,7 +30,7 @@
                 <span class="font-medium text-gray-400">/mo</span>
               </div>
               <div class="text-gray-400 mb-6">Instant file sharing for personal use.</div>
-              <a class="btn-sm text-white bg-gradient-to-t from-blue-600 to-blue-400 hover:to-blue-500 w-full shadow-lg group" href="https://share.shiro.network">
+              <a class="btn-sm text-white bg-gradient-to-t from-blue-600 to-blue-400 hover:to-blue-500 w-full shadow-lg group" href="https://share.shiro.network" target="_blank">
                 Start with Free Tier <span class="tracking-normal text-blue-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
               </a>
             </div>
