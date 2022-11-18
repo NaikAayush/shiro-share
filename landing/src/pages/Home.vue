@@ -7,8 +7,8 @@
     <main class="grow">
       <Hero />
       <PressLogos />
-      <Providers />
       <Features />
+      <Providers />
       <Pricing />
       <Resources />
       <Cta />

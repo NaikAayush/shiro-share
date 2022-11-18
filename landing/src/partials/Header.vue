@@ -15,16 +15,16 @@
           <!-- Desktop sign in links -->
           <ul class="flex grow justify-end flex-wrap items-center">
             <li class="ml-3">
-              <router-link
+              <a
                 class="btn-sm text-white bg-gradient-to-t from-blue-600 to-blue-400 hover:to-blue-500 w-full shadow-lg group"
-                to="#0"
+                href="https://share.shiro.network"
               >
                 Get Started
                 <span
                   class="tracking-normal text-blue-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
                   >-&gt;</span
                 >
-              </router-link>
+              </a>
             </li>
           </ul>
         </nav>

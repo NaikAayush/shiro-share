@@ -39,7 +39,7 @@
               href="https://share.shiro.network"
               target="_blank"
             >
-              Start Free Trial
+              Start with Free Tier
               <span
                 class="tracking-normal text-blue-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1"
                 >-&gt;</span

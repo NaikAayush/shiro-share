@@ -9,7 +9,7 @@
         </div>
         <!-- Items -->
         <div
-          class="max-w-sm md:max-w-5xl mx-auto grid gap-8 grid-cols-4 md:grid-cols-5"
+          class="max-w-sm md:max-w-5xl mx-auto grid gap-8 grid-cols-6"
         >
           <!-- Chainlink -->
           <div
@@ -265,6 +265,17 @@
                 fill="#083b54"
               ></path>
             </svg>
+          </div>
+          <!-- IPFS -->
+          <div
+            class="flex items-center justify-center py-2 col-span-2 md:col-auto col-start-2"
+            data-aos="zoom-out"
+            data-aos-delay="400"
+          >
+            <img
+              class="max-w-full text-white"
+              src="../images/fleek-logo.png"
+            >
           </div>
         </div>
       </div>
